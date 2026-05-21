@@ -1,0 +1,73 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Environment Variables
+.env
+*.env
+
+# Python Tooling
+.pytest_cache/
+.mypy_cache/
+ruff_cache/
+
+# =========================
+# FastAPI / Logs
+# =========================
+*.log
+
+# =========================
+# VS Code / IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Node.js / React
+# =========================
+node_modules/
+
+# Build folders
+dist/
+build/
+
+# React/Vite
+.vite/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Coverage
+# =========================
+coverage/
+htmlcov/
+
+# =========================
+# Database
+# =========================
+*.sqlite3
+
+# =========================
+# Docker
+# =========================
+*.pid
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
