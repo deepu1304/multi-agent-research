@@ -12,7 +12,7 @@ class TaskRequest(BaseModel):
 
 @router.post("/research")
 
-def start_research(request: TaskRequest):
+async def research_task(request: TaskRequest):
 
     result = WorkflowEngine.run(
         request.task
