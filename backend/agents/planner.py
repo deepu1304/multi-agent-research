@@ -1,5 +1,7 @@
 import os
+import json
 import google.generativeai as genai
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -8,7 +10,9 @@ genai.configure(
     api_key=os.getenv("GEMINI_API_KEY")
 )
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel(
+    "gemini-2.5-flash"
+)
 
 
 class PlannerAgent:
@@ -17,12 +21,18 @@ class PlannerAgent:
     def create_plan(user_task):
 
         prompt = f"""
-        You are a professional research planner.
+        You are an expert research planner.
 
-        Break the following task into clear,
-        ordered subtasks.
+        Break the user's task into
+        clear research subtasks.
 
-        Return ONLY a numbered list.
+        Return ONLY valid JSON array.
+
+        Example:
+        [
+          "Research Tesla market share",
+          "Analyze competitors"
+        ]
 
         TASK:
         {user_task}
@@ -30,4 +40,13 @@ class PlannerAgent:
 
         response = model.generate_content(prompt)
 
-        return response.text
+        text = response.text.strip()
+
+        try:
+            subtasks = json.loads(text)
+            return subtasks
+
+        except Exception:
+            return [
+                "Research task parsing failed"
+            ]
