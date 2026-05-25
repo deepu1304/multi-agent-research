@@ -1,5 +1,6 @@
 import ResearchForm from "../components/research/ResearchForm";
 import ResearchResults from "../components/research/ResearchResults";
+import WorkflowGraph from '../components/workflow/WorkflowGraph'
 
 export default function Dashboard() {
 
@@ -19,6 +20,8 @@ export default function Dashboard() {
         <ResearchForm />
 
         <ResearchResults />
+
+        <WorkflowGraph />
 
       </div>
     </div>
